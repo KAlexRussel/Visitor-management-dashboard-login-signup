@@ -30,7 +30,7 @@ const VisitsPage = () => {
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="Search product"
+                              placeholder="Search visit"
                               aria-label="Recipient's username"
                             />
                             <div className="input-group-append">
@@ -47,43 +47,18 @@ const VisitsPage = () => {
                             <div className="checkout_country_form actegory">
                               <select className="selectpicker show-tick">
                                 <option>Select Category</option>
-                                <option value="Computers">Computers</option>
-                                <option value="Technologies">
-                                  Technologies
+                                <option value="date">Date</option>
+                                <option value="purpose">Purpose</option>
+                                <option value="departuredate">
+                                  Departure Date
                                 </option>
-                                <option value="electronic">electronic</option>
-                                <option value="Home&Kitchen">
-                                  Home & Kitchen
-                                </option>
-                                <option value="Clothing&Accessories">
-                                  Clothing & Accessories
-                                </option>
-                                <option value="Babies&Moms">
-                                  Babies & Moms
-                                </option>
-                                <option value="Health&Beauty">
-                                  Health & Beauty
-                                </option>
-                                0
+                                <option value="visitor">Visitor</option>
                               </select>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div className="col-sm-6 col-lg-3">
-                        <div className="dashboard_page sidebar_location_filter mb30 mb5-520">
-                          <div className="form-group">
-                            <div className="checkout_country_form">
-                              <select className="selectpicker show-tick">
-                                <option>Status</option>
-                                <option value="Delivered">Delivered</option>
-                                <option value="Cancel">Cancel</option>
-                                <option value="InProgress">In Progress</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
                       <div className="col-sm-6 col-lg-3">
                         <div className="dashboard_page_add_listing text-center text-lg-end mb30 mb15-520 d-grid">
                           <a
@@ -104,6 +79,7 @@ const VisitsPage = () => {
                             <th scope="col">Date</th>
                             <th scope="col">Departure Date</th>
                             <th scope="col">Visitor</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -128,10 +104,7 @@ const VisitsPage = () => {
                               <span className="style4">Stock</span>
                             </td>
                             <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
+
                             <td className="editing_list align-middle">
                               <ul>
                                 <li className="list-inline-item mb-1">

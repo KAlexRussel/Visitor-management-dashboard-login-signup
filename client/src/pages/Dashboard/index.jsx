@@ -133,7 +133,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <DatatablePage />
+        {/* <DatatablePage /> */}
         <div>
           <div className="row">
             <div className="col-xl-8">
@@ -149,6 +149,7 @@ function Dashboard() {
                           <th scope="col">Date</th>
                           <th scope="col">Departure Date</th>
                           <th scope="col">Visitor</th>
+                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>

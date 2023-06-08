@@ -24,22 +24,43 @@ const AddVisitor = () => {
   };
 
   const handleSubmit = (values, props) => {
-    console.log(values);
-    setTimeout(() => {
-      axios
-        .post("http://localhost:8080/api/form", values) // no try/catch here
-        .then((response) => {
-          console.log(response);
-          navigate("/admindashboard");
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-      console.log(values);
-      alert(JSON.stringify(values, null, 2));
-      // actions.setSubmitting(false);
-    }, 400);
+    const data = {
+      records: [
+        {
+          fields: {
+            firstname: values.username,
+            lastname: values.lastname,
+            email: values.email,
+            phonenumber: values.password,
+            address: values.address,
+          },
+        },
+      ],
+    };
+    const axiosConfig = {
+      headers: {
+        Authorization: "Bearer ",
+        "Content-Type": "application/json",
+      },
+    };
 
+    axios
+      .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
+      .then((response) => {
+        console.log(response);
+        navigate("/admindashboard");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    console.log(values);
+    alert(JSON.stringify(values, null, 2));
+    // actions.setSubmitting(false);
+
+    console.log(props);
+    // actions.setSubmitting(false);
+
+    // console.log(props);
     // console.log(props);
   };
   const validationSchema = Yup.object().shape({
@@ -82,7 +103,6 @@ const AddVisitor = () => {
                           placeholder="enter visitors name"
                           name="firstname"
                           value={props.values.firstname}
-                          onChange={props.handleChange}
                         />
                         <p className="text-danger">
                           {<ErrorMessage name="firstname" />}
@@ -97,9 +117,8 @@ const AddVisitor = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter  visitor lastname"
-                          name="email"
+                          name="lastname"
                           value={props.values.email}
-                          onChange={props.handleChange}
                         />
                         <p className="text-danger">
                           {<ErrorMessage name="lastname" />}
@@ -115,13 +134,12 @@ const AddVisitor = () => {
                         <Field
                           type="text"
                           className="form-control"
-                          placeholder="Ateba Ryan"
+                          placeholder="visitors address"
                           name="adress"
-                          value={props.values.adress}
-                          onChange={props.handleChange}
+                          value={props.values.address}
                         />
                         <p className="text-danger">
-                          {<ErrorMessage name="adress" />}
+                          {<ErrorMessage name="address" />}
                         </p>
                       </div>
                       <div className="mb-2 mr-sm-2 col-6 ">
@@ -134,7 +152,6 @@ const AddVisitor = () => {
                           placeholder="Enter phone number"
                           name="phonenumber"
                           value={props.values.phonenumber}
-                          onChange={props.handleChange}
                         />
                         <p className="text-danger">
                           {<ErrorMessage name="phonenumber" />}
@@ -150,7 +167,6 @@ const AddVisitor = () => {
                         placeholder="Enter email"
                         name="email"
                         value={props.values.email}
-                        onChange={props.handleChange}
                       />
                       <p className="text-danger">
                         {<ErrorMessage name="email" />}

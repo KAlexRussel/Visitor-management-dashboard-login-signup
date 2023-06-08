@@ -1,19 +1,12 @@
 import React from "react";
+import React from "react";
 import "./styles.css";
-// import "../../assets/bootstrap.min.css";
-// import "../../assets/menu.css";
-// import "./../../css/assets/fontawesome.css";
-import "./../../assets/css/fontawesome.css";
-import "../../assets/css/style.css";
-// import "../../assets/bootstrap-select.min.css";
-import "../../assets/css/animate.css";
-import "../../assets/css/flaticon.css";
 import axios from "axios";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-const AddVisits = () => {
+const EditVisitPage = () => {
   const navigate = useNavigate();
   const initialValues = {
     purpose: "",
@@ -152,19 +145,19 @@ const AddVisits = () => {
                     </div>
 
                     {/* <div className="form-group mb-3 ">
-                      <label className="form-label">Visitors email:</label>
-                      <Field
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                        name="email"
-                        value={props.values.email}
-                        onChange={props.handleChange}
-                      />
-                      <p className="text-danger">
-                        {<ErrorMessage name="email" />}
-                      </p>
-                    </div> */}
+                        <label className="form-label">Visitors email:</label>
+                        <Field
+                          type="email"
+                          className="form-control"
+                          placeholder="Enter email"
+                          name="email"
+                          value={props.values.email}
+                          onChange={props.handleChange}
+                        />
+                        <p className="text-danger">
+                          {<ErrorMessage name="email" />}
+                        </p>
+                      </div> */}
 
                     <div className="d-flex gap-1">
                       <button
@@ -191,4 +184,4 @@ const AddVisits = () => {
   );
 };
 
-export default AddVisits;
+export default EditVisitPage;
