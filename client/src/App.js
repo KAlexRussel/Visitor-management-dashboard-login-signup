@@ -7,6 +7,7 @@ import VisitsPage from "./pages/VisitsPage";
 import SettingsPage from "./pages/Settings";
 import VisitorsPage from "./pages/VisitorsPage";
 import AddVisitor from "./pages/AddVisitor";
+import AddVisits from "./pages/AddVisits";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/settings" element={<SettingsPage />} />
           <Route exact path="/visitors" element={<VisitorsPage />} />
           <Route exact path="/addvisitor" element={<AddVisitor />} />
+          <Route exact path="/addvisits" element={<AddVisits />} />
 
           {/* <Route exact path="*" element={<NotFound />} /> */}
         </Routes>

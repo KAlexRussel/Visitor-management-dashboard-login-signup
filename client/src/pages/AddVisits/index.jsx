@@ -13,14 +13,13 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-const AddVisitor = () => {
+const AddVisits = () => {
   const navigate = useNavigate();
   const initialValues = {
-    email: "",
-    firstname: "",
-    lastname: "",
-    address: "",
-    phonenumber: "",
+    purpose: "",
+    date: "",
+    departuredate: "",
+    visitor: "",
   };
 
   const handleSubmit = (values, props) => {
@@ -43,22 +42,16 @@ const AddVisitor = () => {
     // console.log(props);
   };
   const validationSchema = Yup.object().shape({
-    firstname: Yup.string().min(3, " minimum length  3").required("required"),
-    lastname: Yup.string().min(3, "minimum length 3").required("required"),
-    email: Yup.string().email("Invalid email").required("required"),
-    phonenumber: Yup.number()
-      .typeError("Invalid phone number")
-      .required("required"),
-    password: Yup.string()
-      .min(8, "password minimum length should be 8")
-      .required("required"),
+    purpose: Yup.string().required("required"),
+    date: Yup.date().required("required"),
+    departuredate: Yup.date().required("required"),
   });
 
   return (
     <div className="log_reg_form  addv">
       <div className="signin-hidden-sbar">
         <div className="hsidebar-header">
-          <h3 className="title fw-bold text-center">Add New Visitor</h3>
+          <h3 className="title fw-bold text-center">Add New Visits</h3>
         </div>
         <div className="hsidebar-content">
           <div className=" sidebar_area">
@@ -73,36 +66,34 @@ const AddVisitor = () => {
                     <div className=" row  ">
                       <div className="mb-2 mr-sm-2 col-6">
                         <label className="form-label  mt-3 mb-3">
-                          Visitor First Name:
+                          Purpose:
                         </label>
 
                         <Field
                           type="text"
                           className="form-control"
-                          placeholder="enter visitors name"
-                          name="firstname"
-                          value={props.values.firstname}
+                          placeholder="purpose"
+                          name="purpose"
+                          value={props.values.purposee}
                           onChange={props.handleChange}
                         />
                         <p className="text-danger">
-                          {<ErrorMessage name="firstname" />}
+                          {<ErrorMessage name="purpose" />}
                         </p>
                       </div>
 
                       <div className="mb-2 mr-sm-2 col-6">
-                        <label className="form-label mt-3 mb-3">
-                          Visitor Last Name:
-                        </label>
+                        <label className="form-label mt-3 mb-3">Date:</label>
                         <Field
-                          type="text"
+                          type="date"
                           className="form-control"
-                          placeholder="Enter  visitor lastname"
-                          name="email"
-                          value={props.values.email}
+                          // placeholder="Enter  visitor lastname"
+                          name="date"
+                          value={props.values.date}
                           onChange={props.handleChange}
                         />
                         <p className="text-danger">
-                          {<ErrorMessage name="lastname" />}
+                          {<ErrorMessage name="date" />}
                         </p>
                       </div>
                     </div>
@@ -110,39 +101,38 @@ const AddVisitor = () => {
                     <div className="row">
                       <div className="mb-2 mr-sm-2 col-6">
                         <label className="form-label mt-3 mb-3">
-                          Visitors address:
+                          Departure Date:
                         </label>
                         <Field
-                          type="text"
+                          type="date"
                           className="form-control"
-                          placeholder="Ateba Ryan"
-                          name="adress"
-                          value={props.values.adress}
+                          // placeholder="Ateba Ryan"
+                          name="date"
+                          value={props.values.date}
                           onChange={props.handleChange}
                         />
                         <p className="text-danger">
-                          {<ErrorMessage name="adress" />}
+                          {<ErrorMessage name="date" />}
                         </p>
                       </div>
                       <div className="mb-2 mr-sm-2 col-6 ">
-                        <label className="form-label mt-3 mb-3">
-                          Visitors Phone Number:
-                        </label>
-                        <Field
-                          type="text"
+                        <label className="form-label mt-3 mb-3">Visitor:</label>
+                        <select
                           className="form-control"
-                          placeholder="Enter phone number"
                           name="phonenumber"
-                          value={props.values.phonenumber}
+                          value={props.values.visitor}
                           onChange={props.handleChange}
-                        />
+                        >
+                          <option value="visitors">will smith</option>
+                          <option value="visitors">will smith</option>
+                        </select>
                         <p className="text-danger">
-                          {<ErrorMessage name="phonenumber" />}
+                          {<ErrorMessage name="visitor" />}
                         </p>
                       </div>
                     </div>
 
-                    <div className="form-group mb-3 ">
+                    {/* <div className="form-group mb-3 ">
                       <label className="form-label">Visitors email:</label>
                       <Field
                         type="email"
@@ -155,7 +145,7 @@ const AddVisitor = () => {
                       <p className="text-danger">
                         {<ErrorMessage name="email" />}
                       </p>
-                    </div>
+                    </div> */}
 
                     <div className="d-flex gap-1">
                       <button
@@ -165,7 +155,7 @@ const AddVisitor = () => {
                         Add
                       </button>
                       <button
-                        onClick={() => navigate("/admindashboard")}
+                        onClick={() => navigate("/visitors")}
                         className="btn btn-log btn-thm mt20 bg-danger"
                       >
                         Go Back
@@ -182,4 +172,4 @@ const AddVisitor = () => {
   );
 };
 
-export default AddVisitor;
+export default AddVisits;

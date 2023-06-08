@@ -61,8 +61,11 @@ function VisitorsPage() {
                           <a href="#" class="btn btn-gray">
                             Export
                           </a>
-                          <a href="#" class="btn btn-order btn-lg btn-thm">
-                            New Order
+                          <a
+                            href="/addvisitor"
+                            class="btn btn-order btn-lg btn-thm"
+                          >
+                            Add visitor
                           </a>
                         </div>
                       </div>

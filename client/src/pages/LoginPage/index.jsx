@@ -22,11 +22,27 @@ function Login() {
     password: "",
   };
 
-  const handleSubmit = (values, props) => {
+  const handleSubmit = async (values, props) => {
     console.log(values);
+    const data = {
+      records: [
+        {
+          fields: {
+            email: values.email,
+            password: values.password,
+          },
+        },
+      ],
+    };
+    const axiosConfig = {
+      headers: {
+        Authorization: "Bearer ",
+        "Content-Type": "application/json",
+      },
+    };
     setTimeout(() => {
       axios
-        .post("http://localhost:8080/api/form", values) // no try/catch here
+        .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
         .then((response) => {
           console.log(response);
           navigate("/admindashboard");
@@ -54,7 +70,7 @@ function Login() {
     <div className="log_reg_form  loginss">
       <div className="signin-hidden-sbar">
         <div className="hsidebar-header">
-          <h3 className="title fw-bold">Sign-In</h3>
+          <h3 className="title fw-bold text-center">Sign-In</h3>
         </div>
         <div className="hsidebar-content">
           <div className=" sidebar_area">
@@ -64,7 +80,7 @@ function Login() {
                 onSubmit={handleSubmit}
                 validationSchema={validationSchema}
               >
-                {(props) => (
+                {([values, props]) => (
                   <Form>
                     <div className="mb-2 mr-sm-2">
                       <label className="form-label mt-3 mb-3">
@@ -76,7 +92,6 @@ function Login() {
                         placeholder="Ateba Ryan"
                         name="email"
                         value={props.values.email}
-                        onChange={props.handleChange}
                       />
                       <p className="text-danger">
                         {<ErrorMessage name="email" />}
@@ -90,7 +105,6 @@ function Login() {
                         placeholder="Password"
                         name="password"
                         value={props.values.password}
-                        onChange={props.handleChange}
                       />
                       <p className="text-danger">
                         {<ErrorMessage name="password" />}

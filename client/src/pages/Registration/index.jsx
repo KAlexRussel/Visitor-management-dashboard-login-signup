@@ -47,7 +47,7 @@ function Register() {
           {/* <div className="sidebar-close-icon">
             <span className="flaticon-close"></span>
           </div> */}
-          <h4 className="title fw-bold">Create Your Account</h4>
+          <h4 className="title fw-bold text-center">Create Your Account</h4>
         </div>
         <div className="hsidebar-content">
           <div className="sidebar_area">

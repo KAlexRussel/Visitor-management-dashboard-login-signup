@@ -919,11 +919,11 @@ body:after {
 .lb-container > .nav {
   left: 0;
 }
-.lb-nav a {
+/* .lb-nav a {
   outline: none;
   background-image: url("data:image/gif;
     base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
-}
+} */
 .lb-prev,
 .lb-next {
   height: 100%;
