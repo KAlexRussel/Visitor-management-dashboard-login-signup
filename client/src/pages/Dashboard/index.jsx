@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../../components/SideBar";
 import TopBar from "../../components/TopBar";
-import TableDash from "../../components/TableDash";
+// import TableDash from "../../components/TableDash";
+import Charts from "../../components/Charts";
+import DatatablePage from "../../components/TableDash";
 
 function Dashboard() {
+  const [graphShow, setGraphShow] = useState();
+  useEffect((data) => {
+    if ((data = 1)) {
+      setGraphShow(data);
+    }
+  }, []);
+
   return (
     <div>
       <TopBar />
@@ -99,7 +108,7 @@ function Dashboard() {
                 </div>
               </div>
               <div className="row">
-                <div className="col-xl-8">
+                <div className="col-xl-12">
                   <div className="application_statics mb30">
                     <div className="report_widget d-block d-sm-flex justify-content-center justify-content-sm-between">
                       <h4 className="title pl30">Earning Statistics</h4>
@@ -107,32 +116,73 @@ function Dashboard() {
                         <li className="list-inline-item report_export mb15-520">
                           <a href="#">Export Report</a>
                         </li>
-                        <li className="list-inline-item">
+                        <li className="list-inline-item report_export">
                           <select className="selectpicker show-tick">
-                            <option>This Week</option>
-                            <option>This Month</option>
-                            <option>This Year</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
                           </select>
                         </li>
                       </ul>
                     </div>
-                    <canvas id="myChartweave" style={{ height: 230 }}></canvas>
-                  </div>
-                </div>
-                <div className="col-xl-4">
-                  <div className="circle_chart_box">
-                    <h4 className="title mb30">Earning</h4>
-                    <canvas id="myChart" style={{ height: 230 }}>
-                      $56,033
-                    </canvas>
+                    {/* <canvas id="myChartweave" style={{ height: 230 }}></canvas> */}
+                    <Charts />
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <DatatablePage />
         <div>
-          <TableDash />
+          <div className="row">
+            <div className="col-xl-8">
+              <div className="application_statics">
+                <h4 className="title pl30 mb30">Recent Visit</h4>
+                <div className="account_user_deails dashboard_page">
+                  <div className="order_table table-responsive">
+                    <table className="table">
+                      <thead className="table-light">
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Purpose</th>
+                          <th scope="col">Date</th>
+                          <th scope="col">Departure Date</th>
+                          <th scope="col">Visitor</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {/* {datas.map((data)=>(
+                          <tr>
+                          <th scope="row">{data.id}</th>
+                          <td>{data.purpose}</td>
+                          <td>{data.date}</td>
+                          <td>{data.departuredate}</td>
+                          <td>
+                            {data.visitor}
+                          </td>
+                          
+                        </tr>
+
+                        ))} */}
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
+                          <td>Aug 15, 2020</td>
+                          <td>Paid</td>
+                          <td>Delivered</td>
+                          <td>$56.00</td>
+                          <td className="action">
+                            <span className="details">...</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

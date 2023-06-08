@@ -40,22 +40,21 @@ function Login() {
         "Content-Type": "application/json",
       },
     };
-    setTimeout(() => {
-      axios
-        .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
-        .then((response) => {
-          console.log(response);
-          navigate("/admindashboard");
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-      console.log(values);
-      alert(JSON.stringify(values, null, 2));
-      // actions.setSubmitting(false);
-    }, 400);
 
-    // console.log(props);
+    axios
+      .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
+      .then((response) => {
+        console.log(response);
+        navigate("/admindashboard");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    console.log(values);
+    alert(JSON.stringify(values, null, 2));
+    // actions.setSubmitting(false);
+
+    console.log(props);
   };
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -80,7 +79,7 @@ function Login() {
                 onSubmit={handleSubmit}
                 validationSchema={validationSchema}
               >
-                {([values, props]) => (
+                {(props) => (
                   <Form>
                     <div className="mb-2 mr-sm-2">
                       <label className="form-label mt-3 mb-3">

@@ -100,16 +100,26 @@ const VisitsPage = () => {
                         <thead className="table-light">
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">SKU</th>
-                            <th scope="col">Stock</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Categories</th>
+                            <th scope="col">Purpose</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Departure Date</th>
+                            <th scope="col">Visitor</th>
                           </tr>
                         </thead>
                         <tbody>
+                          {/* {datas.map((data)=>(
+                          <tr>
+                          <th scope="row">{data.id}</th>
+                          <td>{data.purpose}</td>
+                          <td>{data.date}</td>
+                          <td>{data.departuredate}</td>
+                          <td>
+                            {data.visitor}
+                          </td>
+                          
+                        </tr>
+
+                        ))} */}
                           <tr>
                             <th scope="row">#1923</th>
                             <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
@@ -123,293 +133,6 @@ const VisitsPage = () => {
                               <span>Aug 15, 2022</span>
                             </td>
                             <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style2">Out Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style4">Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style2">Out Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style4">Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style2">Out Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style4">Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle">
-                              <ul>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Edit"
-                                    data-bs-original-title="View"
-                                    aria-label="View"
-                                  >
-                                    <span className="flaticon-pencil"></span>
-                                  </a>
-                                </li>
-                                <li className="list-inline-item mb-1">
-                                  <a
-                                    href="#"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Delete"
-                                    data-bs-original-title="Edit"
-                                    aria-label="Edit"
-                                  >
-                                    <span className="flaticon-delete"></span>
-                                  </a>
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th scope="row">#1923</th>
-                            <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                            <td>AB123456789-1</td>
-                            <td className="status">
-                              <span className="style2">Out Stock</span>
-                            </td>
-                            <td>$250</td>
-                            <td>Computers, Technologies, electronic</td>
-                            <td className="action">
-                              <span>Aug 15, 2022</span>
-                            </td>
-                            <td className="editing_list align-middle bb1">
                               <ul>
                                 <li className="list-inline-item mb-1">
                                   <a

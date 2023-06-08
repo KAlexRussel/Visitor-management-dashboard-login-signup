@@ -24,20 +24,19 @@ const AddVisits = () => {
 
   const handleSubmit = (values, props) => {
     console.log(values);
-    setTimeout(() => {
-      axios
-        .post("http://localhost:8080/api/form", values) // no try/catch here
-        .then((response) => {
-          console.log(response);
-          navigate("/admindashboard");
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-      console.log(values);
-      alert(JSON.stringify(values, null, 2));
-      // actions.setSubmitting(false);
-    }, 400);
+
+    axios
+      .post("http://localhost:8080/api/form", values) // no try/catch here
+      .then((response) => {
+        console.log(response);
+        navigate("/admindashboard");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    console.log(values);
+    alert(JSON.stringify(values, null, 2));
+    // actions.setSubmitting(false);
 
     // console.log(props);
   };
