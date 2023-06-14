@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./styles.css";
-// import "../../assets/bootstrap.min.css";
-// import "../../assets/menu.css";
-// import "./../../css/assets/fontawesome.css";
-import "./../../assets/css/fontawesome.css";
-import "../../assets/css/style.css";
-// import "../../assets/bootstrap-select.min.css";
-import "../../assets/css/animate.css";
-import "../../assets/css/flaticon.css";
 import axios from "axios";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+// import { AuthProvider } from "../../context/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 
 function Login() {
   // const [formValue, setFormValue] = useState(initialState);
   // const [formValue, setFormValue] = useState(initialState);
+  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const initialValues = {
     email: "",
@@ -40,21 +36,36 @@ function Login() {
         "Content-Type": "application/json",
       },
     };
-
-    axios
+    const response = axios
       .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
       .then((response) => {
         console.log(response);
+        toast.success("login   Successfully");
         navigate("/admindashboard");
+        console.log(props);
+        const accessToken = response?.data?.accessToken;
+        setAuth({ data, accessToken });
       })
-      .catch((error) => {
-        console.log(error.response);
+      .catch((err) => {
+        if (!err?.response) {
+          toast.error("something went wrong");
+
+          console.log(err.response);
+        } else if (err.reponse?.status === 400) {
+          toast.error("Missing username or password");
+        } else if (err.reponse?.status === 401) {
+          toast.error("UnAuthorized");
+        } else {
+          toast.error("Login Fail");
+        }
       });
     console.log(values);
     alert(JSON.stringify(values, null, 2));
     // actions.setSubmitting(false);
 
     console.log(props);
+    const accessToken = response?.data?.accessToken;
+    setAuth({ values, accessToken });
   };
   const validationSchema = Yup.object().shape({
     email: Yup.string()

@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar";
 import TopBar from "../../components/TopBar";
-import TableDash from "../../components/TableDash";
+// import TableDash from "../../components/TableDash";
+import useAxiosFetch from "../../hooks/useAxiosFetch";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const VisitsPage = () => {
+  const { id } = useParams();
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
+
+  const { datas } = useAxiosFetch(`http://localhost:3006/blogs`);
+
+  useEffect(() => {
+    setData(datas);
+  }, [datas]);
+
+  const handleDelete = async (id) => {
+    if (window.confirm("do you really want to delete this blog?")) {
+      const response = await axios.delete(`http://localhost:3006/blogs/${id}`);
+      if (response.status === 200) {
+        toast.success("blog deleted succesfully");
+        // LoadBlogsData();
+        setData(datas);
+      } else {
+        toast.error("something when wrong");
+      }
+    }
+  };
   return (
     <div>
       <TopBar />
@@ -70,7 +98,7 @@ const VisitsPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="order_table table-responsive">
+                    <div className="order_table table-responsive col-lg-12">
                       <table className="table">
                         <thead className="table-light">
                           <tr>
@@ -83,25 +111,52 @@ const VisitsPage = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {/* {datas.map((data)=>(
-                          <tr>
-                          <th scope="row">{data.id}</th>
-                          <td>{data.purpose}</td>
-                          <td>{data.date}</td>
-                          <td>{data.departuredate}</td>
-                          <td>
-                            {data.visitor}
-                          </td>
-                          
-                        </tr>
-
-                        ))} */}
-                          <tr>
+                          {data.map((dataT) => (
+                            <tr>
+                              <th scope="row">{dataT.id}</th>
+                              <td>{dataT.purpose}</td>
+                              <td>{dataT.date}</td>
+                              <td>{dataT.departuredate}</td>
+                              <td>{dataT.visitor}</td>
+                              <td class="editing_list align-middle">
+                                <ul>
+                                  <li class="list-inline-item mb-1">
+                                    <Link
+                                      to={`/editvisit/${id}`}
+                                      data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                      title="Edit"
+                                      data-bs-original-title="View"
+                                      aria-label="View"
+                                    >
+                                      <span class="flaticon-pencil"></span>
+                                    </Link>
+                                  </li>
+                                  <li
+                                    onClick={handleDelete}
+                                    class="list-inline-item mb-1"
+                                  >
+                                    <a
+                                      href="#"
+                                      data-bs-toggle="tooltip"
+                                      data-bs-placement="top"
+                                      title="Delete"
+                                      data-bs-original-title="Edit"
+                                      aria-label="Edit"
+                                    >
+                                      <span class="flaticon-delete"></span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </td>
+                            </tr>
+                          ))}
+                          {/* <tr>
                             <th scope="row">#1923</th>
                             <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
                             <td>AB123456789-1</td>
                             <td className="status">
-                              <span className="style4">Stock</span>
+                              <span>Stock</span>
                             </td>
                             <td>$250</td>
 
@@ -133,7 +188,7 @@ const VisitsPage = () => {
                                 </li>
                               </ul>
                             </td>
-                          </tr>
+                          </tr> */}
                         </tbody>
                       </table>
                     </div>

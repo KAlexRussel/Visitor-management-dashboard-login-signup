@@ -3,6 +3,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function Register() {
   const navigate = useNavigate();
@@ -36,10 +37,12 @@ function Register() {
       .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
       .then((response) => {
         console.log(response);
-        navigate("/admindashboard");
+        toast.success("Registered   Successfully");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.response);
+        toast.error("something  error");
       });
     console.log(values);
     alert(JSON.stringify(values, null, 2));

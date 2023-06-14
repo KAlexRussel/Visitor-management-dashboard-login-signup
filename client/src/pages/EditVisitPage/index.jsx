@@ -1,6 +1,5 @@
 import React from "react";
-import React from "react";
-import "./styles.css";
+// import "./styles.css";
 import axios from "axios";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";

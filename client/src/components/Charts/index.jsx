@@ -12,13 +12,13 @@ import {
 
 import "./style.css";
 
-const Charts = ({ datas, dataKey, grid }) => {
-  const data = [
-    { name: "Page A", violence: 400 },
-    { name: "Page B", violence: 300 },
-    { name: "Page C", violence: 200 },
-    { name: "Page D", violence: 500 },
-  ];
+const Charts = ({ data, dataKey, grid }) => {
+  //   const data = [
+  //     { name: "Page A", violence: 400 },
+  //     { name: "Page B", violence: 300 },
+  //     { name: "Page C", violence: 200 },
+  //     { name: "Page D", violence: 500 },
+  //   ];
   return (
     <div className="charts">
       <div>
@@ -29,7 +29,7 @@ const Charts = ({ datas, dataKey, grid }) => {
             data={data}
             margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
           >
-            <Line type="monotone" dataKey="violence" stroke="#8884d8" />
+            <Line type="monotone" dataKey={dataKey} stroke="#8884d8" />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="name" />
             <YAxis />

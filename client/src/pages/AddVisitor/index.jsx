@@ -1,17 +1,10 @@
 import React from "react";
 import "./styles.css";
-// import "../../assets/bootstrap.min.css";
-// import "../../assets/menu.css";
-// import "./../../css/assets/fontawesome.css";
-import "./../../assets/css/fontawesome.css";
-import "../../assets/css/style.css";
-// import "../../assets/bootstrap-select.min.css";
-import "../../assets/css/animate.css";
-import "../../assets/css/flaticon.css";
 import axios from "axios";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddVisitor = () => {
   const navigate = useNavigate();
@@ -48,9 +41,11 @@ const AddVisitor = () => {
       .post("http://localhost:8080/api/form", data, axiosConfig) // no try/catch here
       .then((response) => {
         console.log(response);
+        toast.success("Visitor Added successfully");
         navigate("/admindashboard");
       })
       .catch((error) => {
+        toast.error("something went wrong");
         console.log(error.response);
       });
     console.log(values);

@@ -8,11 +8,15 @@ import SettingsPage from "./pages/Settings";
 import VisitorsPage from "./pages/VisitorsPage";
 import AddVisitor from "./pages/AddVisitor";
 import AddVisits from "./pages/AddVisits";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import EditVisitPage from "./pages/EditVisitPage";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ToastContainer />
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
@@ -22,6 +26,7 @@ function App() {
           <Route exact path="/visitors" element={<VisitorsPage />} />
           <Route exact path="/addvisitor" element={<AddVisitor />} />
           <Route exact path="/addvisits" element={<AddVisits />} />
+          <Route exact path="/editvisit/:id" element={<EditVisitPage />} />
 
           {/* <Route exact path="*" element={<NotFound />} /> */}
         </Routes>

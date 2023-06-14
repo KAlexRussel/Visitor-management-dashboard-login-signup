@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function SideBar() {
   return (
@@ -21,12 +22,7 @@ function SideBar() {
                 <i className="flaticon-checked-box mr15"></i>Visitors
               </a>
             </div>
-
-            <div className="sidebar_list_item ">
-              <a href="/settings" className="items-center">
-                <i className="flaticon-settings mr15"></i>Settings
-              </a>
-            </div>
+            {/* z */}
             <div className="sidebar_list_item ">
               <a href="/" className="items-center">
                 <i className="flaticon-exit mr15"></i>Logout
